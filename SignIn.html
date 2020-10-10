@@ -56,12 +56,24 @@
           <hr />
           <span class="or"> or </span>
         </div>
-        <div class="g-signin2 d-block" data-onsuccess="onSignIn"></div>
+        <div id="g-signin2" class="g-signin2" data-onsuccess="onSignIn"></div>
       </div>
     </div>
   </body>
 
   <!-- JS, Popper.js, and jQuery -->
+  <script>
+    function renderButton() {
+      gapi.signin2.render('g-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+  </script>
   <script
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
